@@ -8,19 +8,19 @@ mp_pose = mp.solutions.pose
 pose = mp_pose.Pose()
 
 def resize_image(image_path, size=(256, 256)):
-    """ Resize image to a fixed size. """
+    
     image = cv2.imread(image_path)
     image = cv2.resize(image, size)
     return image
 
 def segment_person(image):
-    """ Dummy function for person segmentation. (Replace with a proper model) """
+   
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     _, mask = cv2.threshold(gray, 128, 255, cv2.THRESH_BINARY)
     return mask
 
 def get_pose_keypoints(image):
-    """ Extract keypoints using MediaPipe Pose. """
+    
     img_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
     results = pose.process(img_rgb)
     if results.pose_landmarks:

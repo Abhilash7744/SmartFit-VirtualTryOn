@@ -8,7 +8,7 @@ generator.load_state_dict(torch.load("../models/generator.pth"))
 generator.eval()
 
 def try_on(person_path, garment_path):
-    """ Apply trained model to fit garment onto a person. """
+    
     person_img = to_tensor(Image.open(person_path)).unsqueeze(0)
     garment_img = to_tensor(Image.open(garment_path)).unsqueeze(0)
     
